@@ -1232,3 +1232,16 @@ backup:
   # -- (list) List of resource types to exclude from the backup.
   # @section -- Backup Parameters
   excludedResources:
+
+# -- (object) extra manifest objects.
+extraObjects: {}
+# extraObjects:
+#   config-foo : |-
+
+#     apiVersion: v1
+#     kind: ConfigMap
+#     metadata:
+#       name: {{ .Release.Namespace }}-foo
+#       namespace: {{ .Release.Namespace }}
+#     data:
+#       foo: bar

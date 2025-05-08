@@ -548,7 +548,7 @@ autoscaling:
 # autoscaling is used for vertical pod autoscaling
 vpa:
 # enabled is a boolean flag for enabling or disabling vpa
-  enabled: true
+  enabled: false
 # additionalLabels defines additional labels
   additionalLabels:
     # key: value
@@ -1361,3 +1361,14 @@ job:
         options:
           - name: ndots
             value: '1'
+
+extraObjects:
+  config-foo : |-
+
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: {{ .Release.Namespace }}-foo
+      namespace: {{ .Release.Namespace }}
+    data:
+      foo: bar
